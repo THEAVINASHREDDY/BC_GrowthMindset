@@ -1,0 +1,25 @@
+2023-07-03 17:17:13 [INFO] Question: who is more collaborative
+2023-07-03 17:17:13 [INFO] Running PandasAI with openai LLM...
+2023-07-03 17:17:13 [INFO] Prompt ID: 5bf05e5a-785e-4f97-b2d6-9a3463422ee5
+2023-07-03 17:17:14 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: OPENAI_A**_KEY. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-07-03 17:17:21 [INFO] Question: who is more collaborative
+2023-07-03 17:17:21 [INFO] Running PandasAI with openai LLM...
+2023-07-03 17:17:21 [INFO] Prompt ID: 94cb72d0-c20f-4511-ac86-781b3f184333
+2023-07-03 17:17:22 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: OPENAI_A**_KEY. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-07-03 17:17:23 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: OPENAI_A**_KEY. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-07-03 17:18:11 [INFO] Question: who is more collaborative
+2023-07-03 17:18:11 [INFO] Running PandasAI with openai LLM...
+2023-07-03 17:18:11 [INFO] Prompt ID: 3cd490f9-78a2-4c28-a1fc-e920c97e6519
+2023-07-03 17:18:13 [INFO] error_code=context_length_exceeded error_message="This model's maximum context length is 4097 tokens. However, your messages resulted in 12149 tokens. Please reduce the length of the messages." error_param=messages error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-07-03 17:18:19 [INFO] Question: who is more collaborative
+2023-07-03 17:18:19 [INFO] Running PandasAI with openai LLM...
+2023-07-03 17:18:19 [INFO] Prompt ID: d718869d-f12d-4336-9ac3-fdf34081e74d
+2023-07-03 17:18:20 [INFO] error_code=context_length_exceeded error_message="This model's maximum context length is 4097 tokens. However, your messages resulted in 12152 tokens. Please reduce the length of the messages." error_param=messages error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-07-03 17:18:54 [INFO] Question: who is more collaborative
+2023-07-03 17:18:54 [INFO] Running PandasAI with openai LLM...
+2023-07-03 17:18:54 [INFO] Prompt ID: 542869bd-0d39-4ebb-ac29-9e4adb9f556e
+2023-07-03 17:18:57 [INFO] error_code=context_length_exceeded error_message="This model's maximum context length is 4097 tokens. However, your messages resulted in 12152 tokens. Please reduce the length of the messages." error_param=messages error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-07-03 17:19:04 [INFO] Question: who is more collaborative
+2023-07-03 17:19:04 [INFO] Running PandasAI with openai LLM...
+2023-07-03 17:19:04 [INFO] Prompt ID: c44c1b15-e734-479d-ae54-8764bf0b97a7
+2023-07-03 17:19:06 [INFO] error_code=context_length_exceeded error_message="This model's maximum context length is 4097 tokens. However, your messages resulted in 12153 tokens. Please reduce the length of the messages." error_param=messages error_type=invalid_request_error message='OpenAI API error received' stream_error=False

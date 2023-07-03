@@ -2,11 +2,12 @@ from getpass import getpass
 from openai.embeddings_utils import get_embedding
 import pandas as pd
 import openai
-import pinecone
-import warnings
+# import pinecone
+# import warnings
 import os
 import streamlit as st
-
+import matplotlib.pyplot as plt
+import plotly.express as px
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 
@@ -16,6 +17,31 @@ with st.form(key='form'):
     category =st.selectbox("Choose Value: ", ['Humility', 'Growth', 'Resilience', 'Attitude to Failure', 'Fixed Beliefs', 'Curiosity', 'Blame', 'Agility', 'Collaboration'])
     submit_button = st.form_submit_button(label='Submit') 
 num = df[df['Firstname'] == name].index.values
+
+score_mapping = {'low': 1, 'medium': 2, 'high': 3}
+individual_scores = [
+    score_mapping[df.H_hml_rating[num].values[0].lower()],  # Convert to lowercase and update mapping usage
+    score_mapping[df.G_hml_rating[num].values[0].lower()],
+    score_mapping[df.R_hml_rating[num].values[0].lower()],
+    score_mapping[df.ATF_hml_rating[num].values[0].lower()],
+    score_mapping[df.FB_hml_rating[num].values[0].lower()],
+    score_mapping[df.C_hml_rating[num].values[0].lower()],
+    score_mapping[df.B_hml_rating[num].values[0].lower()],
+    score_mapping[df.AG_hml_rating[num].values[0].lower()],
+    score_mapping[df.COL_hml_rating[num].values[0].lower()]
+]
+# plt.figure(figsize=(10, 6))
+categories = ['Humility', 'Growth', 'Resilience', 'Attitude to Failure', 'Fixed Beliefs', 'Curiosity', 'Blame', 'Agility', 'Collaboration']
+fig = px.line_polar(df, r=individual_scores, theta=categories, line_close=True)
+#fig.show()
+# plt.bar(categories, individual_scores)
+# plt.xlabel('Categories')
+# plt.ylabel('Scores')
+# plt.title('Candidate Scores in Individual Category')
+# plt.xticks(rotation=45)
+
+
+
 prompt = f'''
 Humility: The ability to recognize and accept one's limitations and mistakes without arrogance or excessive pride.
 Growth: The continuous process of personal or professional development and improvement over time.
@@ -101,6 +127,7 @@ Write comment, question and reasoning separately.
 # )
 
 print(prompt)
+print(num)
 if submit_button:
   response = openai.Completion.create(
     model="text-davinci-003",
@@ -111,6 +138,9 @@ if submit_button:
     frequency_penalty=0,
     presence_penalty=0
   )
+
+  st.plotly_chart(fig, use_container_width=True)
   st.write(response['choices'][0]['text'])
+  
 
 
