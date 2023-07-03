@@ -27,43 +27,43 @@ Blame: Assigning responsibility or fault to someone for a particular situation o
 Agility: The ability to adapt quickly and effectively to changing circumstances or challenges.
 Collaboration: Working together with others towards a common goal, sharing ideas, resources, and responsibilities.
 
-In a growth mindset Assessment Test where the candidate is scored based on the above parameters, the candidate {df.Firstname[num]}  has performed as follows:
+In a growth mindset Assessment Test where the candidate is scored based on the above parameters, the candidate {df.Firstname[num].values}  has performed as follows:
 
 Individual Category:
 	
-Humility: {df.H_hml_rating[num]}
-Growth: {df.G_hml_rating[num]}
-Resilience: {df.R_hml_rating[num]}
-Attitude to Failure: {df.ATF_hml_rating[num]}
-Fixed Beliefs: {df.FB_hml_rating[num]}
-Curiosity: {df.C_hml_rating[num]}
-Blame: {df.B_hml_rating[num]}
-Agility: {df.AG_hml_rating[num]}
-Collaboration: {df.COL_hml_rating[num]}
+Humility: {df.H_hml_rating[num].values}
+Growth: {df.G_hml_rating[num].values}
+Resilience: {df.R_hml_rating[num].values}
+Attitude to Failure: {df.ATF_hml_rating[num].values}
+Fixed Beliefs: {df.FB_hml_rating[num].values}
+Curiosity: {df.C_hml_rating[num].values}
+Blame: {df.B_hml_rating[num].values}
+Agility: {df.AG_hml_rating[num].values}
+Collaboration: {df.COL_hml_rating[num].values}
 	
-When compared against their team-members, the candidates relative scores are:
+When compared against their team members, the candidates team-relative scores are:
 
-Humility: {df.H_team_relative_pos[num]}
-Growth: {df.G_team_relative_pos[num]}
-Resilience: {df.R_team_relative_pos[num]}
-Attitude to Failure: {df.ATF_team_relative_pos[num]}
-Fixed Beliefs: {df.FB_team_relative_pos[num]}
-Curiosity: {df.C_team_relative_pos[num]}
-Blame: {df.B_team_relative_pos[num]}
-Agility: {df.AG_team_relative_pos[num]}
-Collaboration: {df.COL_team_relative_pos[num]}
+Humility: {df.H_team_relative_pos[num].values}
+Growth: {df.G_team_relative_pos[num].values}
+Resilience: {df.R_team_relative_pos[num].values}
+Attitude to Failure: {df.ATF_team_relative_pos[num].values}
+Fixed Beliefs: {df.FB_team_relative_pos[num].values}
+Curiosity: {df.C_team_relative_pos[num].values}
+Blame: {df.B_team_relative_pos[num].values}
+Agility: {df.AG_team_relative_pos[num].values}
+Collaboration: {df.COL_team_relative_pos[num].values}
 
 And their team-overall scores are:
 
-Humility: {df.H_team_overall_pos[num]}
-Growth: {df.G_team_relative_pos[num]}
-Resilience: {df.R_team_relative_pos[num]}
-Attitude to Failure: {df.ATF_team_relative_pos[num]}
-Fixed Beliefs: {df.FB_team_relative_pos[num]}
-Curiosity: {df.C_team_relative_pos[num]}
-Blame: {df.B_team_relative_pos[num]}
-Agility: {df.AG_team_relative_pos[num]}
-Collaboration: {df.COL_team_relative_pos[num]}
+Humility: {df.H_team_overall_pos[num].values}
+Growth: {df.G_team_relative_pos[num].values}
+Resilience: {df.R_team_relative_pos[num].values}
+Attitude to Failure: {df.ATF_team_relative_pos[num].values}
+Fixed Beliefs: {df.FB_team_relative_pos[num].values}
+Curiosity: {df.C_team_relative_pos[num].values}
+Blame: {df.B_team_relative_pos[num].values}
+Agility: {df.AG_team_relative_pos[num].values}
+Collaboration: {df.COL_team_relative_pos[num].values}
 
 Comment and give me an interview question to ask the candidate, based of the data on their individual, team-relative and team-overall grades of {category}
 The question should be with respect to the analysis you developed through your comment and their scores in the assessment.
