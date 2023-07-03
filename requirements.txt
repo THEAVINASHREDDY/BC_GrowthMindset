@@ -1,0 +1,9 @@
+numpy
+scipy
+pandas
+scikit-learn
+streamlit
+matplotlib
+plotly
+openai
+pinecone-client
