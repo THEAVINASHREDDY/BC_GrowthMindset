@@ -8,8 +8,6 @@ import os
 import streamlit as st
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
-pinecone_api = os.environ["PINECONE_API_KEY"]
-environment = os.environ["PINECONE_ENV"]
 
 
 df = pd.read_csv('Book.csv')
@@ -96,11 +94,11 @@ Comment and give me an interview question to ask the candidate, based of the dat
 #     temperature=0.7,
 # )
 
-print(system)
+print(prompt)
 
 response = openai.Completion.create(
   model="text-davinci-003",
-  prompt=system,
+  prompt=prompt,
   temperature=1,
   max_tokens=256,
   top_p=1,
