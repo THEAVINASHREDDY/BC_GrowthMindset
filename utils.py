@@ -21,14 +21,17 @@ hardcode= {"curiosity": "Never stop looking for a better way of doing things.",
            "generousity": "Sharing knowledge and networks builds better businesses",
            "Seeking diversity": "The best ideas aren’t always your own",
            "Embracing Data": "Decisions should be driven by analytics and customer insights."}
-df = pd.read_csv('parameter.csv')
-df['embedding'] = df['text'].apply(lambda x: get_embedding(x, engine=EMBEDDING_MODEL))
-df.to_csv('embeddings.csv')
-df.info(show_counts=True)
-ind = [i for i in range(0, len(df))]
-df['embedding_id'] = ind
-df.head()
 
+def dataprep(file, output):
+    df = pd.read_csv(file)
+    df['embedding'] = df['text'].apply(lambda x: get_embedding(x, engine=EMBEDDING_MODEL))
+    df.to_csv(output)
+    df.info(show_counts=True)
+    ind = [i for i in range(0, len(df))]
+    df['embedding_id'] = ind
+    return df
+
+df = dataprep('parameter.csv', 'embeddings.csv')
 embeddings = df['embedding']
 embedding_ids = df['embedding_id'].astype("string")
 texts = df['text']
@@ -37,11 +40,11 @@ index = pinecone.Index(index_name='embedded')
 
 index.delete(deleteAll='true')
 # Create a list of dictionaries with the data
-index.upsert(list(zip(embedding_ids, embeddings)))
+index.upsert(list(zip(embedding_ids, embeddings)), namespace='parameters')
 
 content_mapped = dict(zip(embedding_ids.astype(int),texts))
 
-def query_article(query, top_k=1):
+def query_article(query, name, top_k=1):
     '''Queries an article using its title in the specified
      namespace and prints results.'''
 
@@ -53,6 +56,7 @@ def query_article(query, top_k=1):
 
     # Query namespace passed as parameter using title vector
     query_result = index.query(embedded_query,
+                               namespace=name,
                                       top_k=top_k)
     print(f'\nMost similar results to {query}:')
     if not query_result.matches:
@@ -72,8 +76,10 @@ with st.form(key='form'):
                                 (['curiosity', 'nimbleness', 'generousity', 'Seeking diversity', 'Embracing Data']))
 
     submit_button = st.form_submit_button(label='Submit') 
-query_output = query_article(prompt)
-print(query_output)
+query_param = query_article(prompt, 'parameters')
+#query_val = query_article(value, 'values')
+print(query_param)
+#print(query_val)
 
 def apply_prompt_template(question: str, score: num) -> str:
     """
@@ -89,7 +95,7 @@ messages = list(
 map(lambda chunk: {
     "role": "user",
     "content": chunk
-}, query_output))
+}, query_param))
 
 question = apply_prompt_template(value, num)
 print(question)
