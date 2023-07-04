@@ -109,7 +109,7 @@ if submit_button:
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
-        temperature=1,
+        temperature=1.2,
         max_tokens=256,
         top_p=1,
         frequency_penalty=0,
