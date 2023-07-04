@@ -1,4 +1,3 @@
-
 import pandas as pd
 import openai
 import os
@@ -32,6 +31,10 @@ individual_scores = [
 categories = ['Humility', 'Growth', 'Resilience', 'Attitude to Failure', 'Fixed Beliefs', 'Curiosity', 'Blame',
               'Agility', 'Collaboration']
 fig = px.line_polar(df, r=individual_scores, theta=categories, line_close=True)
+fig.update_traces(fill='toself')
+fig.update_polars(radialaxis_showline=False)
+fig.update_polars(radialaxis_showticklabels=False)
+fig.update_layout(polar_radialaxis_showticklabels=False)
 # fig.show()
 # plt.bar(categories, individual_scores)
 # plt.xlabel('Categories')
