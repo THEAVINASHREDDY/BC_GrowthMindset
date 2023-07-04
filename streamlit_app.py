@@ -35,6 +35,7 @@ fig.update_traces(fill='toself')
 fig.update_polars(radialaxis_showline=False)
 fig.update_polars(radialaxis_showticklabels=False)
 fig.update_layout(polar_radialaxis_showticklabels=False)
+
 # fig.show()
 # plt.bar(categories, individual_scores)
 # plt.xlabel('Categories')
