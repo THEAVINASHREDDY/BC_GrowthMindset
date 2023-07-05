@@ -8,18 +8,11 @@ import streamlit as st
 
 import plotly.express as px
 
-
-
-
 openai.api_key = os.environ["OPENAI_API_KEY"]
-
-
-
 
 df = pd.read_csv('Book.csv')
 
 with st.form(key='form'):
-
     name = st.selectbox("Select Candidate: ", df['Firstname'].values)
 
     category = st.selectbox("Choose Value: ",
@@ -31,9 +24,6 @@ with st.form(key='form'):
     submit_button = st.form_submit_button(label='Submit')
 
 num = df[df['Firstname'] == name].index.values
-
-
-
 
 score_mapping = {'low': 1, 'medium': 2, 'high': 3}
 
@@ -86,9 +76,6 @@ fig.update_layout(polar_radialaxis_showticklabels=False)
 # plt.title('Candidate Scores in Individual Category')
 
 # plt.xticks(rotation=45)
-
-
-
 
 
 prompt = f'''
@@ -200,10 +187,8 @@ Agility: {df.AG_team_relative_pos[num].values}
 
 Collaboration: {df.COL_team_relative_pos[num].values}'''
 
-
-
-
-prompt1 = f'''Comment and give me a comprehensive interview question to ask the candidate, based of the data on their individual,
+prompt1 = f'''Comment and give me a comprehensive interview question to ask the candidate, based of the data on their
+individual,
 
 team-relative and team-overall grades of {category}
 
@@ -217,15 +202,11 @@ Write comment, question and reasoning separately.
 
 '''
 
-
-
-
 # print(prompt)
 
 # print(num)
 
 if submit_button:
-
     # response = openai.Completion.create(
 
     #     model="text-davinci-003",
@@ -244,26 +225,20 @@ if submit_button:
 
     # )
 
-
-
-
     response1 = openai.ChatCompletion.create(
 
         model="gpt-3.5-turbo",
 
         messages=[
 
-                {"role": "system", "content": f"{prompt}"},
+            {"role": "system", "content": f"{prompt}"},
 
-                {"role": "user", "content": f"{prompt1}"}
+            {"role": "user", "content": f"{prompt1}"}
 
-            ]
+        ],
+        temperature=1.2
 
-        )
-
-
-
-
+    )
 
     st.plotly_chart(fig)
 
