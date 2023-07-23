@@ -1,14 +1,14 @@
-name : dockerbuild
+name: dockerbuild
 
-on : [push]
+on:
+  push:
 
-jobs :
-  build :
-    runs-on : ubuntu-latest
-  
-    steps : 
-    - uses : actions/checkout@v2
-    - name : dockerbuild
-      run : |
-        docker build -t myimage:1.0 .
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Docker Image
+        run: |
+          docker build -t myimage:1.0 .
